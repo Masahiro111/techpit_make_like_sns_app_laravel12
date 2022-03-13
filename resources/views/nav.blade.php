@@ -4,16 +4,18 @@
 
     <ul class="ml-auto navbar-nav">
 
+        @guest
         <li class="nav-item">
-            <a class="nav-link" href="">ユーザー登録</a>
+            <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link" href="">ログイン</a>
+            <a class="nav-link" href="{{ route('login') }}">ログイン</a>
         </li>
+        @endguest
 
+        @auth
         <li class="nav-item">
-            <a class="nav-link" href=""><i class="mr-1 fas fa-pen"></i>投稿する</a>
+            <a class="nav-link" href="{{ route('articles.create') }}"><i class="mr-1 fas fa-pen"></i>投稿する</a>
         </li>
 
         <!-- Dropdown -->
@@ -35,7 +37,9 @@
         </li>
         <form id="logout-button" method="POST" action="">
         </form>
+
         <!-- Dropdown -->
+        @endauth
 
     </ul>
 
