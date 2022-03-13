@@ -10,6 +10,11 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'body',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
