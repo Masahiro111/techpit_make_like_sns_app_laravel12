@@ -35,4 +35,21 @@ class ArticleController extends Controller
     {
         return view('articles.edit', compact('article'));
     }
+
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $article->update([
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+        ]);
+
+        return redirect()->route('articles.index');
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        return redirect()->route('articles.index');
+    }
 }
