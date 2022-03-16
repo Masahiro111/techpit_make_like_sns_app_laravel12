@@ -1,6 +1,6 @@
-<div class="card mt-3">
-    <div class="card-body d-flex flex-row">
-        <i class="fas fa-user-circle fa-3x mr-1"></i>
+<div class="mt-3 card">
+    <div class="flex-row card-body d-flex">
+        <i class="mr-1 fas fa-user-circle fa-3x"></i>
         <div>
             <div class="font-weight-bold">{{ $article->user->name }}</div>
             <div class="font-weight-lighter">{{ $article->created_at->format('Y/m/d H:i') }}</div>
@@ -15,11 +15,11 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{{ route('articles.edit', ['article' => $article]) }}">
-                        <i class="fas fa-pen mr-1"></i>記事を更新する
+                        <i class="mr-1 fas fa-pen"></i>記事を更新する
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
-                        <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+                        <i class="mr-1 fas fa-trash-alt"></i>記事を削除する
                     </a>
                 </div>
             </div>
@@ -53,7 +53,7 @@
         @endif
 
     </div>
-    <div class="card-body pt-0">
+    <div class="pt-0 card-body">
         <h3 class="h4 card-title">
             <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
                 {{ $article->title }}
@@ -63,4 +63,17 @@
             {{ $article->body }}
         </div>
     </div>
+
+    {{-- like button --}}
+    <div class="pt-0 pb-2 pl-3 card-body">
+        <div class="card-text">
+            <button
+                    type="button"
+                    class="p-1 m-0 shadow-none btn">
+                <i class="mr-1 fas fa-heart"></i>
+            </button>
+            10
+        </div>
+    </div>
+
 </div>
