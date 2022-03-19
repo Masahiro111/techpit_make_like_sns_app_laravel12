@@ -16,8 +16,8 @@ class BookSeeder extends Seeder
     public function run()
     {
         Book::create([
-            'title' => '本のタイトル',
-            'content' => '本の内容',
+            'title' => 'Laravel リファレンスブック',
+            'content' => 'Laravel 初心者向けの本です',
         ]);
     }
 }

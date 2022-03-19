@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Article extends Model
 {
@@ -25,9 +26,9 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function likes(): BelongsToMany
+    public function likes(): HasMany
     {
-        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+        return $this->hasMany(Like::class);
     }
 
     public function isLikedBy(?User $user): bool

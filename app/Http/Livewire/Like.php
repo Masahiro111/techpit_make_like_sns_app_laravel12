@@ -3,11 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\Article;
+use App\Models\Like as ModelsLike;
 use Livewire\Component;
 
 class Like extends Component
 {
-    public Article $article;
+    public $article;
     public int $count;
 
     public function mount(Article $article)
@@ -23,8 +24,9 @@ class Like extends Component
 
             $this->count--;
         } elseif (auth()->user()) {
-            $this->article->likes()->create([
+            ModelsLike::create([
                 'user_id' => auth()->id(),
+                'article_id' => 1,
             ]);
 
             $this->count++;
