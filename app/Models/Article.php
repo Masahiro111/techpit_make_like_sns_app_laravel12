@@ -16,6 +16,10 @@ class Article extends Model
         'body',
     ];
 
+    protected $withCount = [
+        'likes',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -31,5 +35,31 @@ class Article extends Model
         return $user
             ? (bool)$this->likes->where('id', $user->id)->count()
             : false;
+    }
+
+    public function isLiked(): bool
+    {
+        // if (auth()->user()) {
+        //     return auth()->user()->likes()->forPost($this)->count();
+        // }
+
+        // if (($ip = request()->ip()) && ($userAgent = request()->userAgent())) {
+        //     return $this->likes()->forIp($ip)->forUserAgent($userAgent)->count();
+        // }
+
+        return false;
+    }
+
+    public function removeLike(): bool
+    {
+        // if (auth()->user()) {
+        //     return auth()->user()->likes()->forPost($this)->delete();
+        // }
+
+        // if (($ip = request()->ip()) && ($userAgent = request()->userAgent())) {
+        //     return $this->likes()->forIp($ip)->forUserAgent($userAgent)->delete();
+        // }
+
+        return false;
     }
 }

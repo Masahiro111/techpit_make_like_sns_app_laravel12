@@ -67,12 +67,11 @@
     {{-- like button --}}
     <div class="pt-0 pb-2 pl-3 card-body">
         <div class="card-text">
-            <button
-                    type="button"
-                    class="p-1 m-0 shadow-none btn">
-                <i class="mr-1 fas fa-heart"></i>
-            </button>
-            10
+            <span class="inline-flex items-center text-sm">
+
+                <livewire:like />
+
+            </span>
         </div>
     </div>
 
